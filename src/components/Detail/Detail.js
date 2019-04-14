@@ -2,6 +2,7 @@ import React from 'react';
 import './style.css';
 import {getKoop} from "../../services/funda/funda.services";
 import DetailInfo from "../DetailInfo/DetailInfo";
+import Images from "../Images/Images";
 
 class Detail extends React.Component {
     constructor(props){
@@ -31,6 +32,7 @@ class Detail extends React.Component {
         return (
             <div className="">
                 <DetailInfo info={detail.info}/>
+                <Images images={detail.images}/>
                 {
                     JSON.stringify(detail)
                 }

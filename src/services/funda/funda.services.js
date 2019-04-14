@@ -37,6 +37,12 @@ export async function getKoop(id) {
             address: data.Adres,
             place: data.Plaats,
             postcode: data.Postcode
-        }
+        },
+        images: data.Media.map((media) => {
+            return {
+                original : media.MediaItems[media.MediaItems.length - 1].Url,
+                thumbnail : media.MediaItems[0].Url,
+            }
+        })
     }
 }
