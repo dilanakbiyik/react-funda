@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 import {getKoop} from "../../services/funda/funda.services";
+import DetailInfo from "../DetailInfo/DetailInfo";
 
 class Detail extends React.Component {
     constructor(props){
@@ -23,9 +24,13 @@ class Detail extends React.Component {
         })
     }
     render() {
-        const { match, detail } = this.state;
+        const { match, detail, loading } = this.state;
+        if(loading){
+            return <div>Loading...</div>
+        }
         return (
             <div className="">
+                <DetailInfo info={detail.info}/>
                 {
                     JSON.stringify(detail)
                 }

@@ -23,12 +23,20 @@ function checkStatus(response) {
     throw error;
 }
 
-export function getKoop(id) {
-    return axios.get(`${API.PROXY}/${API.URL}/${API.CLIENT_ID}/koop/${id}`, {
+export async function getKoop(id) {
+    const data = await axios.get(`${API.PROXY}/${API.URL}/${API.CLIENT_ID}/koop/${id}`, {
         headers: {
             'Access-Control-Allow-Origin': '*'
         }
     })
         .then(checkStatus)
         .then(parseJSON);
+    return {
+        info: {
+            price: data.Prijs.Koopprijs,
+            address: data.Adres,
+            place: data.Plaats,
+            postcode: data.Postcode
+        }
+    }
 }
