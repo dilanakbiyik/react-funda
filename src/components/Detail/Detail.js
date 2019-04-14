@@ -33,6 +33,7 @@ class Detail extends React.Component {
             <div className="">
                 <DetailInfo info={detail.info}/>
                 <Images images={detail.images}/>
+                <p>{detail.description}</p>
                 {
                     JSON.stringify(detail)
                 }

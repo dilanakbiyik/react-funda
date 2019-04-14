@@ -32,6 +32,7 @@ export async function getKoop(id) {
         .then(checkStatus)
         .then(parseJSON);
     return {
+        description: data.VolledigeOmschrijving,
         info: {
             price: data.Prijs.Koopprijs,
             address: data.Adres,
